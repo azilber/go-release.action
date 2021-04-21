@@ -9,6 +9,11 @@ fi
 
 FILE_LIST=`/build.sh`
 
+
+if [ -z "${FILE_LIST+x}" ]; then
+echo "::error file=entrypoint.sh,line=22,col=1::FILE_LIST is empty"
+fi
+
 #echo "::warning file=/build.sh,line=1,col=5::${FILE_LIST}"
 
 EVENT_DATA=$(cat $GITHUB_EVENT_PATH)
